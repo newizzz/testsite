@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Koala Facts</title>
+</head>
+<body>
+    <h1>Koala Facts</h1>
+    <img id="koalaImg" src="" alt="Koala Image">
+    <p id="fact"></p>
+
+    <script>
+        // Array of koala facts
+        const facts = [
+            "Koalas are not bears. They are marsupials, which means that their young are born immature and they develop further in the safety of a pouch.",
+            "Koalas have a special digestive system, a long gut that allows them to break down the toxic compounds found in eucalyptus leaves.",
+            "Koalas have fingerprints that are almost identical to human fingerprints.",
+            "Koalas sleep for up to 20 hours a day.",
+            "Koalas have a low-energy diet and they get most of their water from the eucalyptus leaves they eat."
+        ];
+
+        // Array of koala images
+        const images = [
+            "https://example.com/koala1.jpg",
+            "https://example.com/koala2.jpg",
+            "https://example.com/koala3.jpg",
+            "https://example.com/koala4.jpg",
+            "https://example.com/koala5.jpg"
+        ];
+
+        // Function to display a random fact
+        function displayFact() {
+            const factIndex = Math.floor(Math.random() * facts.length);
+            document.getElementById("fact").innerHTML = facts[factIndex];
+        }
+
+        // Function to display a random image
+        function displayImage() {
+            const imageIndex = Math.floor(Math.random() * images.length);
+            document.getElementById("koalaImg").src = images[imageIndex];
+        }
+
+        // Display a random fact every minute
+        setInterval(displayFact, 60000);
+
+        // Display a random image on page load
+        window.onload = displayImage;
+    </script>
+</body>
+</html>

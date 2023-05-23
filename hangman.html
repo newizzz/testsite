@@ -11,15 +11,25 @@
     <p id="wrongGuesses"></p>
     <input type="text" id="guess" maxlength="1">
     <button onclick="makeGuess()">Guess</button>
+    <button onclick="resetGame()">Reset</button>
     <script>
         var words = ["apple", "banana", "orange", "strawberry"];
-        var word = words[Math.floor(Math.random() * words.length)];
-        var answerArray = [];
-        for (var i = 0; i < word.length; i++) {
-            answerArray[i] = "_";
+        var word;
+        var answerArray;
+        var remainingLetters;
+        var wrongGuesses;
+        function resetGame() {
+            word = words[Math.floor(Math.random() * words.length)];
+            answerArray = [];
+            for (var i = 0; i < word.length; i++) {
+                answerArray[i] = "_";
+            }
+            remainingLetters = word.length;
+            wrongGuesses = [];
+            document.getElementById("word").innerHTML = answerArray.join(" ");
+            document.getElementById("wrongGuesses").innerHTML = wrongGuesses.join(", ");
         }
-        var remainingLetters = word.length;
-        var wrongGuesses = [];
+        resetGame();
         function makeGuess() {
             var guessInput = document.getElementById("guess");
             var guess = guessInput.value;
@@ -47,7 +57,6 @@
                 }
             }
         }
-        document.getElementById("word").innerHTML = answerArray.join(" ");
     </script>
 </body>
 </html>

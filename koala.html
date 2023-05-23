@@ -7,6 +7,7 @@
     <h1>Koala Facts</h1>
     <img id="koalaImg" src="" alt="Koala Image">
     <p id="fact"></p>
+    <p id="timer"></p>
 
     <script>
         // Array of koala facts
@@ -20,11 +21,11 @@
 
         // Array of koala images
         const images = [
-            "https://example.com/koala1.jpg",
-            "https://example.com/koala2.jpg",
-            "https://example.com/koala3.jpg",
-            "https://example.com/koala4.jpg",
-            "https://example.com/koala5.jpg"
+            "https://cdn.discordapp.com/attachments/667378927236284426/1110471912548737114/2Q.png",
+            "https://cdn.discordapp.com/attachments/667378927236284426/1110472274060005416/2153933.png",
+            "https://cdn.discordapp.com/attachments/667378927236284426/1110472309757710396/2Q.png",
+            "https://cdn.discordapp.com/attachments/667378927236284426/1110472351398768731/Z.png",
+            "https://cdn.discordapp.com/attachments/667378927236284426/1110472391706026044/images.png"
         ];
 
         // Function to display a random fact
@@ -39,8 +40,17 @@
             document.getElementById("koalaImg").src = images[imageIndex];
         }
 
+        // Function to update the timer
+        function updateTimer() {
+            let timeLeft = 60 - new Date().getSeconds();
+            document.getElementById("timer").innerHTML = `00:00:${timeLeft} left to the next fact`;
+        }
+
         // Display a random fact every minute
         setInterval(displayFact, 60000);
+
+        // Update the timer every second
+        setInterval(updateTimer, 1000);
 
         // Display a random image on page load
         window.onload = displayImage;
